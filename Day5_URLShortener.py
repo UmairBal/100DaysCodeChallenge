@@ -35,11 +35,19 @@ def url_shortner(original_url):
         else:
             short_url += char
 
-    print(short_url)
+    return short_url
+
+def decode_url(url):
+    global database
+    code = url[-6:]
+    original_url = database.get(code)
+    return original_url
+
 
 def main():
     url = input("Enter the url you want to shorten: ")
-    url_shortner(url)
+    short = url_shortner(url)
+    original = decode_url(short)
 
 
 if __name__ == "__main__":
