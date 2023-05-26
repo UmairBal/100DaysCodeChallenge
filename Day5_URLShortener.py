@@ -37,6 +37,8 @@ def url_shortner(original_url):
 
     return short_url
 
+
+# Decode the Shorten URL to original one
 def decode_url(url):
     global database
     code = url[-6:]
