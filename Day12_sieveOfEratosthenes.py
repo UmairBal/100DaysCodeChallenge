@@ -1,28 +1,19 @@
-def prime_or_not(num):
-    check = True
-    for i in range(2, num-1):
-        if num % i == 0:
-            check = False
-
-    return check
+from math import isqrt
 
 
-def primes_in_range(num):
-    primes = []
-    for i in range(2, num):
-        check = prime_or_not(i)
-        if check:
-            primes.append(i)
-    return primes
+def primes(n: int) -> list[int]:
+    if n <= 2:
+        return []
+    is_prime = [True] * n
+
+    is_prime[0] = False
+    is_prime[1] = False
+    for i in range(2, isqrt(n)):
+        if is_prime[i]:
+            for x in range(i*i, n, i):
+                is_prime[x] = False
+
+    return[i for i in range(n) if is_prime[i]]
 
 
-def main():
-    num = int(input("Enter a number: "))
-    primes = primes_in_range(num)
-    print(primes)
-
-
-if __name__ == "__main__":
-    main()
-
-
+print(primes(231))
