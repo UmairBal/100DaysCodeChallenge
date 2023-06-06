@@ -16,6 +16,17 @@ for i in range(1, n + 1):
         else:
             print("0", end=" ")
     print()
+    
+################## Rhombus pattern  #####################
+
+n = int(input("Enter a number: "))
+for i in range(n):
+    for j in range(1,n+1-i):
+        print(" ", end=" ")
+    for j in range(n):
+        print("*", end=" ")
+    print()
+
 
 
 
