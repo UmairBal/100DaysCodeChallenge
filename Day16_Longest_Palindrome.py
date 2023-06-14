@@ -18,17 +18,13 @@ def substrings(string: str):
 
 
 def longest_palindrome(substring: list):
-    max_val = 0
-    point = 0
-    longest_palindromes = []
-    for i in substring:
-        if palindrome(i):
-            longest_palindromes.append(i)
-    for i in range(len(longest_palindromes)):
-        if len(longest_palindromes[i]) > max_val:
-            max_val = len(longest_palindromes[i])
-            point = i
-    print("Longest Palindrome is: ", longest_palindromes[point])
+    new_sub_string = [word for word in substring if palindrome(word)]
+    new_sub_string.sort(key=len, reverse=True)
+    if new_sub_string:
+        print("palindrome is: ", new_sub_string[0])
+    else:
+        print("no palindrome found")
+
 
 
 def main():
